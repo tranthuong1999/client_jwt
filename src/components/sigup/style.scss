@@ -34,6 +34,10 @@
                 letter-spacing: 1px;
                 padding: 12px 45px;
                 text-transform: uppercase;
+
+                &:hover {
+                    cursor: pointer;
+                }
             }
         }
     }

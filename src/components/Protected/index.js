@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import "./style.scss"
 
 const Protected = () => {
     const [message, setMessage] = useState("");
@@ -23,10 +24,13 @@ const Protected = () => {
         navigate("/login");
     };
 
-    return <>
-        {message}
-        <button onClick={handleLogout}>Logout</button>
-    </>;
+    return <div className="protect_page">
+        <h1> Đăng nhập thành công </h1>
+        <div className="btn_logout">
+            <button className="btn" onClick={handleLogout}>Logout</button>
+
+        </div>
+    </div>;
 };
 
 export default Protected;

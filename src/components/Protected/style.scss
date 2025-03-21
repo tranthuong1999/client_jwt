@@ -1,0 +1,25 @@
+.protect_page {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    justify-content: center;
+    align-items: center;
+
+    .btn_logout {
+        .btn {
+            background: #36867b;
+            border: 1px solid #36867b;
+            border-radius: 20px;
+            color: #fff;
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            padding: 12px 45px;
+            text-transform: uppercase;
+            &:hover {
+                cursor: pointer;
+            }
+        }
+
+    }
+}

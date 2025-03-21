@@ -2,7 +2,7 @@ import React from "react";
 import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom";
 import Login from "./components/login";
 import Signup from "./components/sigup";
-import Protected from "./Protected";
+import Protected from "./components/Protected";
 import Main from "./components/main";
 import HomePage from "./components/home";
 
