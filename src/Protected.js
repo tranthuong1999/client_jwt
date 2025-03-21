@@ -5,8 +5,7 @@ import { useNavigate } from "react-router-dom";
 const Protected = () => {
     const [message, setMessage] = useState("");
     const navigate = useNavigate();
-    const BASE_URL = process.env.REACT_APP_BASE_URL;
-
+    const BASE_URL = process.env.REACT_APP_BASE_URL || "http://localhost:5000";
     useEffect(() => {
         const fetchProtectedData = async () => {
             try {
