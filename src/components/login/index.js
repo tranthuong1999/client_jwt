@@ -21,19 +21,19 @@ const Login = () => {
             alert("Invalid credentials");
         }
     };
-
-
     return (
         <div className="login_page">
             <h2 className="title_login">Login</h2>
             <form onSubmit={handleLogin} className="form_login">
                 <div>
-                    <input type="email" placeholder="Email" value={email} onChange={(e) => setEmail(e.target.value)} required />
+                    <input className="field" type="email" placeholder="Email" value={email} onChange={(e) => setEmail(e.target.value)} required />
                 </div>
                 <div>
-                    <input type="password" placeholder="Password" value={password} onChange={(e) => setPassword(e.target.value)} required />
+                    <input className="field" type="password" placeholder="Password" value={password} onChange={(e) => setPassword(e.target.value)} required />
                 </div>
-                <button type="submit">Login</button>
+                <div className="btn_login">
+                    <button type="submit">Login</button>
+                </div>
             </form>
         </div>
     );

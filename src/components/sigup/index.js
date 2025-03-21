@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { encryptPassword } from "../../utils/encryption.js"
+import "./style.scss";
 
 
 const Signup = () => {
@@ -22,14 +23,28 @@ const Signup = () => {
     };
 
     return (
-        <div>
-            <h2>Signup</h2>
-            <form onSubmit={handleSignup}>
-                <input type="email" placeholder="Email" value={email} onChange={(e) => setEmail(e.target.value)} required />
-                <input type="password" placeholder="Password" value={password} onChange={(e) => setPassword(e.target.value)} required />
-                <button type="submit">Signup</button>
+        <div className="register_page">
+            <h2 className="title_login">Signup</h2>
+            <form onSubmit={handleSignup} className="form_register">
+                <div>
+                    <input className="field" type="email" placeholder="Email" value={email} onChange={(e) => setEmail(e.target.value)} required />
+                </div>
+                <div>
+                    <input className="field" type="password" placeholder="Password" value={password} onChange={(e) => setPassword(e.target.value)} required />
+                </div>
+                <div className="btn_register">
+                    <button type="submit">Signup</button>
+                </div>
             </form>
         </div>
+        // <div>
+        //     <h2>Signup</h2>
+        //     <form onSubmit={handleSignup}>
+        //         <input type="email" placeholder="Email" value={email} onChange={(e) => setEmail(e.target.value)} required />
+        //         <input type="password" placeholder="Password" value={password} onChange={(e) => setPassword(e.target.value)} required />
+        //         <button type="submit">Signup</button>
+        //     </form>
+        // </div>
     );
 };
 
