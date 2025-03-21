@@ -15,7 +15,6 @@ const Signup = () => {
         const encryptedPassword = encryptPassword(password);
         try {
             await axios.post(`${BASE_URL}/signup`, { email, password: encryptedPassword }, { withCredentials: true });
-            // await axios.post(`{}/signup`, { email, password: encryptedPassword }, { withCredentials: true })
             navigate("/protected");
         } catch (err) {
             alert("Error signing up");

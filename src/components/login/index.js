@@ -3,6 +3,7 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import Cookies from "js-cookie";
 import { encryptPassword } from "../../utils/encryption.js"
+import "./style.scss"
 
 const BASE_URL = process.env.REACT_APP_BASE_URL || "http://localhost:5000";
 
@@ -23,11 +24,15 @@ const Login = () => {
 
 
     return (
-        <div>
-            <h2>Login</h2>
-            <form onSubmit={handleLogin}>
-                <input type="email" placeholder="Email" value={email} onChange={(e) => setEmail(e.target.value)} required />
-                <input type="password" placeholder="Password" value={password} onChange={(e) => setPassword(e.target.value)} required />
+        <div className="login_page">
+            <h2 className="title_login">Login</h2>
+            <form onSubmit={handleLogin} className="form_login">
+                <div>
+                    <input type="email" placeholder="Email" value={email} onChange={(e) => setEmail(e.target.value)} required />
+                </div>
+                <div>
+                    <input type="password" placeholder="Password" value={password} onChange={(e) => setPassword(e.target.value)} required />
+                </div>
                 <button type="submit">Login</button>
             </form>
         </div>
