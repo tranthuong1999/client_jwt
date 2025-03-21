@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import Cookies from "js-cookie";
-import { encryptPassword } from "./utils/encryption.js"
+import { encryptPassword } from "../../utils/encryption.js"
 
 const BASE_URL = process.env.REACT_APP_BASE_URL || "http://localhost:5000";
 
