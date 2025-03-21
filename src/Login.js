@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 import Cookies from "js-cookie";
 import { encryptPassword } from "./utils/encryption.js"
 
-
+const BASE_URL = process.env.REACT_APP_BASE_URL;
 
 const Login = () => {
     const [email, setEmail] = useState("");
@@ -14,13 +14,14 @@ const Login = () => {
         e.preventDefault();
         const encryptedPassword = encryptPassword(password);
         try {
-            await axios.post("https://server-jwt-6p2v.onrender.com/login", { email, password: encryptedPassword }, { withCredentials: true });
+            await axios.post(`${BASE_URL}/login`, { email, password: encryptedPassword }, { withCredentials: true });
             navigate("/protected");
         } catch (err) {
             alert("Invalid credentials");
         }
     };
-    console.log("checking env", process.env.REACT_APP_BASE_URL)
+
+
     return (
         <div>
             <h2>Login</h2>

@@ -8,12 +8,14 @@ const Signup = () => {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const navigate = useNavigate();
+    const BASE_URL = process.env.REACT_APP_BASE_URL;
+
 
     const handleSignup = async (e) => {
         e.preventDefault();
         const encryptedPassword = encryptPassword(password);
         try {
-            await axios.post("https://server-jwt-6p2v.onrender.com/signup", { email, password: encryptedPassword }, { withCredentials: true });
+            await axios.post(`${BASE_URL}/signup`, { email, password: encryptedPassword }, { withCredentials: true });
             navigate("/protected");
         } catch (err) {
             alert("Error signing up");

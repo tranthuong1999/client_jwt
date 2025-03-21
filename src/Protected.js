@@ -5,11 +5,12 @@ import { useNavigate } from "react-router-dom";
 const Protected = () => {
     const [message, setMessage] = useState("");
     const navigate = useNavigate();
+    const BASE_URL = process.env.REACT_APP_BASE_URL;
 
     useEffect(() => {
         const fetchProtectedData = async () => {
             try {
-                const { data } = await axios.get("https://server-jwt-6p2v.onrender.com/protected", { withCredentials: true });
+                const { data } = await axios.get(`${BASE_URL}/protected`, { withCredentials: true });
                 setMessage(data.message);
             } catch (err) {
                 navigate("/login");
