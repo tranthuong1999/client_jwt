@@ -20,7 +20,7 @@ const Login = () => {
             alert("Invalid credentials");
         }
     };
-    console.log("checking env", process.env.REACT_APP_SECRET_KEY)
+    console.log("checking env", process.env.REACT_APP_BASE_URL)
     return (
         <div>
             <h2>Login</h2>
