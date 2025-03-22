@@ -4,18 +4,20 @@ import useProtectedData from "../../hooks/useProtect";
 
 const HomePage = () => {
     const navigate = useNavigate();
-    const { message } = useProtectedData();
+    const { message, loading } = useProtectedData();
 
     useEffect(() => {
-        if (message === null) {
+        if (!loading && message === null) {
             navigate("/login");
         }
-    }, [message, navigate]);
+    }, [message, loading, navigate]);
 
-    if (message === null) return <h1>Loading...</h1>;
+    if (loading) return <h1>Loading...</h1>;
 
     return (
-        <h1>Home page. Đăng nhập thành công</h1>
+        <h2 style={{ display: "flex", justifyContent: 'center' }}>
+            Home page. Đăng nhập thành công
+        </h2>
     );
 };
 

@@ -4,9 +4,9 @@ import useProtectedData from "../../hooks/useProtect";
 
 const Main = () => {
     return (
-        <h1>
+        <h2 style={{ display: "flex", justifyContent: 'center' }}>
             HELLO JWT
-        </h1>
+        </h2>
     )
 };
 

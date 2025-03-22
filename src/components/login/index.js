@@ -16,7 +16,8 @@ const Login = () => {
         const encryptedPassword = encryptPassword(password);
         try {
             const data = await axios.post(`${BASE_URL}/login`, { email, password: encryptedPassword }, { withCredentials: true });
-            if (data.status == 200) {
+            console.log("Data login", data)
+            if (data) {
                 navigate("/home");
             } else {
                 alert("Login failed: Not authenticated");
