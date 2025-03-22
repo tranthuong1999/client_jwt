@@ -6,6 +6,14 @@ import Protected from "./components/Protected";
 import Main from "./components/main";
 import HomePage from "./components/home";
 
+const isAuthenticated = () => {
+  return !!document.cookie.split("; ").find(row => row.startsWith("token=")); // Check if token exists
+};
+
+const ProtectedRoute = ({ children }) => {
+  return isAuthenticated() ? children : <Navigate to="/login" />;
+};
+
 const App = () => {
   return (
     <Router>

@@ -19,9 +19,20 @@ const Protected = () => {
         fetchProtectedData();
     }, [navigate]);
 
+
+    // const handleLogout = async () => {
+    //     await axios.post("https://server-jwt-6p2v.onrender.com/logout", {}, { withCredentials: true });
+    //     navigate("/login");
+    // };
+
     const handleLogout = async () => {
-        await axios.post("https://server-jwt-6p2v.onrender.com/logout", {}, { withCredentials: true });
-        navigate("/login");
+        try {
+            await axios.post(`${BASE_URL}/logout`, {}, { withCredentials: true });
+            document.cookie = "token=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;"; // Remove token
+            navigate("/login");
+        } catch (error) {
+            console.error("Logout failed", error);
+        }
     };
 
     return <div className="protect_page">

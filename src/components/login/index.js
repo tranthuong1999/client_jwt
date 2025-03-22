@@ -15,8 +15,12 @@ const Login = () => {
         e.preventDefault();
         const encryptedPassword = encryptPassword(password);
         try {
-            await axios.post(`${BASE_URL}/login`, { email, password: encryptedPassword }, { withCredentials: true });
-            navigate("/protected");
+            const data = await axios.post(`${BASE_URL}/login`, { email, password: encryptedPassword }, { withCredentials: true });
+            if (data.status == 200) {
+                navigate("/home");
+            } else {
+                alert("Login failed: Not authenticated");
+            }
         } catch (err) {
             alert("Invalid credentials");
         }

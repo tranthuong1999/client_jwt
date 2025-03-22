@@ -8,19 +8,18 @@ const useProtectedData = () => {
     const navigate = useNavigate();
 
     useEffect(() => {
-        let isMounted = true; // Prevents state update if unmounted
         const fetchProtectedData = async () => {
             try {
                 const { data } = await axios.get(`${BASE_URL}/protected`, { withCredentials: true });
-                if (isMounted) setMessage(data.message);
+                // if (isMounted)
+                setMessage(data.message);
             } catch (err) {
-                if (isMounted) navigate("/login");
+                setMessage(null);
+                navigate("/login");
             }
         };
         fetchProtectedData();
-        return () => { isMounted = false }; // Cleanup on unmount
     }, [BASE_URL, navigate]);
-
     return { message, setMessage };
 };
 

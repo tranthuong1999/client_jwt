@@ -7,15 +7,16 @@ const HomePage = () => {
     const { message } = useProtectedData();
 
     useEffect(() => {
-        if (!message) {
+        if (message === null) {
             navigate("/login");
         }
     }, [message, navigate]);
+
+    if (message === null) return <h1>Loading...</h1>;
+
     return (
-        <h1>
-            Home page
-        </h1>
-    )
+        <h1>Home page. Đăng nhập thành công</h1>
+    );
 };
 
 export default HomePage;
